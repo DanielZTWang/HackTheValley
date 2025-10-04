@@ -1,3 +1,231 @@
+/* AI Chatbox Styles */
+.aichat-bg {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f8e1f4 0%, #e0c3fc 60%, #f43f5e 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 0;
+}
+.aichat-container {
+	background: rgba(255,255,255,0.98);
+	border-radius: 1.5rem;
+	box-shadow: 0 8px 40px 0 rgba(244,63,94,0.10), 0 1.5px 8px 0 rgba(124,58,237,0.08);
+	padding: 2rem 1.5rem 1.2rem 1.5rem;
+	max-width: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+.aichat-title {
+	color: #a21caf;
+	font-size: 1.5rem;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 0 0.5rem 0;
+}
+.aichat-messages {
+	background: linear-gradient(90deg, #f8e1f4 0%, #e0c3fc 100%);
+	border-radius: 1rem;
+	min-height: 180px;
+	max-height: 260px;
+	overflow-y: auto;
+	padding: 1rem 0.7rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+	box-shadow: 0 2px 12px 0 rgba(244,63,94,0.07);
+}
+.aichat-msg {
+	padding: 0.5em 1em;
+	border-radius: 1em;
+	max-width: 80%;
+	font-size: 1.05rem;
+	word-break: break-word;
+	box-shadow: 0 1px 4px 0 rgba(124, 58, 237, 0.04);
+}
+.aichat-msg-user {
+	align-self: flex-end;
+	background: #f43f5e;
+	color: #fff;
+}
+.aichat-msg-ai {
+	align-self: flex-start;
+	background: #e0c3fc;
+	color: #a21caf;
+}
+.aichat-form {
+	display: flex;
+	gap: 0.7rem;
+}
+.aichat-input {
+	flex: 1;
+	border: 1.5px solid #e0c3fc;
+	border-radius: 0.7rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	outline: none;
+	background: #fff;
+	color: #a21caf;
+	transition: border 0.2s;
+}
+.aichat-input:focus {
+	border-color: #f43f5e;
+}
+.aichat-send-btn {
+	background: linear-gradient(90deg, #f43f5e 0%, #a21caf 100%);
+	color: #fff;
+	border: none;
+	border-radius: 0.7rem;
+	padding: 0.5rem 1.2rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow: 0 1px 4px 0 rgba(244,63,94,0.08);
+	transition: background 0.2s;
+}
+.aichat-send-btn:hover {
+	background: linear-gradient(90deg, #a21caf 0%, #f43f5e 100%);
+}
+/* Main Menu Purply Pink Red Theme */
+.mainmenu-bg {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f8e1f4 0%, #f9c0d7 40%, #e0c3fc 70%, #f43f5e 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 0;
+}
+
+.mainmenu-container {
+	background: rgba(255,255,255,0.97);
+	border-radius: 2rem;
+	box-shadow: 0 8px 40px 0 rgba(244,63,94,0.10), 0 1.5px 8px 0 rgba(124,58,237,0.08);
+	padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+	max-width: 420px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 2.2rem;
+}
+
+.mainmenu-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.7rem;
+}
+.mainmenu-logo {
+	width: 3.2rem;
+	height: 3.2rem;
+	margin-bottom: 0.2rem;
+}
+.mainmenu-title {
+	margin: 0;
+	font-size: 2.1rem;
+	font-weight: 700;
+	color: #a21caf;
+	letter-spacing: -1px;
+}
+.mainmenu-subtitle {
+	color: #a21caf;
+	font-size: 1.1rem;
+	margin: 0;
+	text-align: center;
+	font-weight: 500;
+}
+
+.mainmenu-leaderboard-card, .mainmenu-friends-card {
+	background: linear-gradient(90deg, #f8e1f4 0%, #e0c3fc 100%);
+	border-radius: 1.2rem;
+	box-shadow: 0 2px 12px 0 rgba(244,63,94,0.07);
+	padding: 1.2rem 1rem 1.1rem 1rem;
+	margin-bottom: 0.5rem;
+}
+.mainmenu-section-title {
+	color: #f43f5e;
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+.mainmenu-leaderboard {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+}
+.mainmenu-leaderboard li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: rgba(244,63,94,0.07);
+	border-radius: 0.7rem;
+	padding: 0.6rem 1rem;
+	font-size: 1.08rem;
+	font-weight: 500;
+	color: #a21caf;
+	box-shadow: 0 1px 4px 0 rgba(244,63,94,0.04);
+}
+.mainmenu-user-row {
+	background: linear-gradient(90deg, #f9c0d7 0%, #e0c3fc 100%);
+	color: #fff;
+	font-weight: 700;
+	box-shadow: 0 2px 8px 0 rgba(124,58,237,0.08);
+}
+.mainmenu-rank {
+	font-size: 1.1em;
+	font-weight: 700;
+	color: #f43f5e;
+	margin-right: 0.7em;
+}
+.mainmenu-name {
+	flex: 1;
+	text-align: left;
+	margin-left: 0.5em;
+}
+.mainmenu-hours {
+	font-size: 1em;
+	color: #a21caf;
+	font-weight: 600;
+}
+
+.mainmenu-addfriend-form {
+	display: flex;
+	gap: 0.7rem;
+	justify-content: center;
+}
+.mainmenu-input {
+	border: 1.5px solid #e0c3fc;
+	border-radius: 0.7rem;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	outline: none;
+	background: #fff;
+	color: #a21caf;
+	transition: border 0.2s;
+}
+.mainmenu-input:focus {
+	border-color: #f43f5e;
+}
+.mainmenu-add-btn {
+	background: linear-gradient(90deg, #f43f5e 0%, #a21caf 100%);
+	color: #fff;
+	border: none;
+	border-radius: 0.7rem;
+	padding: 0.5rem 1.2rem;
+	font-size: 1rem;
+	font-weight: 600;
+	cursor: pointer;
+	box-shadow: 0 1px 4px 0 rgba(244,63,94,0.08);
+	transition: background 0.2s;
+}
+.mainmenu-add-btn:hover {
+	background: linear-gradient(90deg, #a21caf 0%, #f43f5e 100%);
+}
 
 body {
 	min-height: 100vh;
