@@ -4,14 +4,16 @@ import '../App.css';
 const About: React.FC = () => {
   return (
     <div className="about-container">
-      <div className="about-hero-graphic">
-        <svg width="100%" height="180" viewBox="0 0 600 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="90" cy="90" r="70" fill="#7C3AED" fillOpacity="0.2" />
-          <rect x="200" y="30" width="120" height="120" rx="30" fill="#F59E42" fillOpacity="0.18" />
-          <ellipse cx="480" cy="90" rx="80" ry="60" fill="#10B981" fillOpacity="0.18" />
-          <circle cx="340" cy="60" r="30" fill="#F43F5E" fillOpacity="0.25" />
-          <rect x="420" y="120" width="60" height="30" rx="15" fill="#3B82F6" fillOpacity="0.22" />
-        </svg>
+      <div className="flex justify-center">
+        <div className="rounded-3xl bg-white/80 shadow-lg p-2 w-full max-w-3xl">
+          <svg width="100%" height="180" viewBox="0 0 600 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="90" cy="90" r="70" fill="#7C3AED" fillOpacity="0.2" />
+            <rect x="200" y="30" width="120" height="120" rx="30" fill="#F59E42" fillOpacity="0.18" />
+            <ellipse cx="480" cy="90" rx="80" ry="60" fill="#10B981" fillOpacity="0.18" />
+            <circle cx="340" cy="60" r="30" fill="#F43F5E" fillOpacity="0.25" />
+            <rect x="420" y="120" width="60" height="30" rx="15" fill="#3B82F6" fillOpacity="0.22" />
+          </svg>
+        </div>
       </div>
   <h1 className="about-title">About <span className="studyhacks-brand">StudyHacks</span></h1>
       <p className="about-lead">

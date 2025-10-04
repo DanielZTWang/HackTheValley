@@ -31,8 +31,14 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Right section: Auth buttons */}
+      {/* Right section: AI Chat + Auth buttons */}
       <div className="flex items-center gap-4">
+        <Link
+          to="/aichat"
+          className="bg-gradient-to-r from-pink-300 via-purple-300 to-fuchsia-400 text-purple-900 font-semibold text-base px-4 py-2 rounded-full shadow hover:from-pink-400 hover:to-fuchsia-500 hover:text-white transition-colors flex items-center gap-2"
+        >
+          <span role="img" aria-label="AI">🤖</span> AI Chat
+        </Link>
         <Link
           to="/signin"
           className="text-gray-700 font-medium text-base px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"

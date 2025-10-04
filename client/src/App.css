@@ -1,3 +1,228 @@
+/* Super Cute Global Theme */
+body {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #ffe6f7 0%, #e0c3fc 60%, #ffd6e0 100%);
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #a21caf;
+}
+
+/* Navbar Cuteness */
+nav {
+	background: linear-gradient(90deg, #f8e1f4 0%, #e0c3fc 100%);
+	border-bottom: 3px solid #f9c0d7;
+	box-shadow: 0 4px 24px 0 rgba(244,63,94,0.07);
+	border-radius: 0 0 1.5rem 1.5rem;
+}
+nav .text-xl, nav .font-semibold {
+	color: #f43f5e !important;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	letter-spacing: 1px;
+}
+nav a {
+	border-radius: 0.8em;
+	transition: background 0.2s, color 0.2s;
+}
+nav a:hover {
+	background: #ffe6f7;
+	color: #f43f5e !important;
+}
+
+/* Card Cuteness */
+.mainmenu-container, .mainmenu-leaderboard-card, .mainmenu-friends-card, .about-container, .aichat-container {
+	border-radius: 2rem !important;
+	box-shadow: 0 8px 40px 0 rgba(244,63,94,0.10), 0 1.5px 8px 0 rgba(124,58,237,0.08);
+	background: rgba(255,255,255,0.98) !important;
+	border: 2.5px solid #f9c0d7;
+}
+
+/* Buttons */
+button, .mainmenu-add-btn, .aichat-send-btn {
+	border-radius: 1.2em !important;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	font-weight: 700;
+	box-shadow: 0 2px 8px 0 rgba(244,63,94,0.08);
+	background: linear-gradient(90deg, #f9c0d7 0%, #e0c3fc 100%) !important;
+	color: #a21caf !important;
+	border: none;
+	transition: background 0.2s, color 0.2s;
+}
+button:hover, .mainmenu-add-btn:hover, .aichat-send-btn:hover {
+	background: linear-gradient(90deg, #e0c3fc 0%, #f9c0d7 100%) !important;
+	color: #f43f5e !important;
+}
+
+/* Inputs */
+input, .mainmenu-input, .aichat-input {
+	border-radius: 1.2em !important;
+	border: 2px solid #e0c3fc !important;
+	background: #fff !important;
+	color: #a21caf !important;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	font-size: 1.05em;
+	padding: 0.5em 1.1em;
+	transition: border 0.2s;
+}
+input:focus, .mainmenu-input:focus, .aichat-input:focus {
+	border-color: #f43f5e !important;
+	background: #ffe6f7 !important;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	color: #f43f5e;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	font-weight: 800;
+	letter-spacing: 1px;
+}
+
+/* Cute List Items */
+li, .mainmenu-leaderboard li, .about-list li {
+	border-radius: 1em !important;
+	background: linear-gradient(90deg, #ffe6f7 0%, #e0c3fc 100%) !important;
+	color: #a21caf !important;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	font-size: 1.08em;
+	margin-bottom: 0.5em;
+	padding: 0.5em 1em;
+	box-shadow: 0 1px 4px 0 rgba(244,63,94,0.04);
+}
+
+/* Cute Scrollbar */
+::-webkit-scrollbar {
+	width: 10px;
+	background: #ffe6f7;
+	border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+	background: #e0c3fc;
+	border-radius: 8px;
+}
+/* Super Cute AI Chatbox Styles */
+.aichat-bg {
+	min-height: 100vh;
+	background: linear-gradient(135deg, #ffe6f7 0%, #e0c3fc 60%, #ffd6e0 100%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 0;
+}
+.aichat-container {
+	background: rgba(255,255,255,0.98);
+	border-radius: 2.2rem;
+	box-shadow: 0 8px 40px 0 rgba(244,63,94,0.10), 0 1.5px 8px 0 rgba(124,58,237,0.08);
+	padding: 2.2rem 1.7rem 1.5rem 1.7rem;
+	max-width: 420px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	border: 3px solid #f9c0d7;
+	position: relative;
+}
+.aichat-title {
+	color: #f43f5e;
+	font-size: 1.7rem;
+	font-weight: 800;
+	text-align: center;
+	margin: 0 0 0.5rem 0;
+	letter-spacing: 1px;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5em;
+}
+.aichat-title::before {
+	content: '💬';
+	font-size: 1.2em;
+}
+.aichat-messages {
+	background: linear-gradient(90deg, #ffe6f7 0%, #e0c3fc 100%);
+	border-radius: 1.5rem;
+	min-height: 180px;
+	max-height: 260px;
+	overflow-y: auto;
+	padding: 1.1rem 0.9rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+	box-shadow: 0 2px 12px 0 rgba(244,63,94,0.07);
+}
+.aichat-msg {
+	padding: 0.7em 1.2em;
+	border-radius: 1.5em;
+	max-width: 80%;
+	font-size: 1.08rem;
+	word-break: break-word;
+	box-shadow: 0 2px 8px 0 rgba(124, 58, 237, 0.08);
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+	position: relative;
+}
+.aichat-msg-user {
+	align-self: flex-end;
+	background: linear-gradient(90deg, #f9c0d7 0%, #e0c3fc 100%);
+	color: #a21caf;
+	border-bottom-right-radius: 0.5em;
+	border-top-right-radius: 2.2em;
+	border-top-left-radius: 2.2em;
+	border-bottom-left-radius: 2.2em;
+	margin-right: 0.2em;
+	border: 2px solid #f9c0d7;
+}
+.aichat-msg-ai {
+	align-self: flex-start;
+	background: #fff0fa;
+	color: #f43f5e;
+	border-bottom-left-radius: 0.5em;
+	border-top-right-radius: 2.2em;
+	border-top-left-radius: 2.2em;
+	border-bottom-right-radius: 2.2em;
+	margin-left: 0.2em;
+	border: 2px solid #e0c3fc;
+}
+.aichat-msg-ai::before {
+	content: '🤖 ';
+	font-size: 1em;
+}
+.aichat-form {
+	display: flex;
+	gap: 0.7rem;
+	margin-top: 0.2rem;
+}
+.aichat-input {
+	flex: 1;
+	border: 2px solid #e0c3fc;
+	border-radius: 1.2rem;
+	padding: 0.6rem 1.1rem;
+	font-size: 1.08rem;
+	outline: none;
+	background: #fff;
+	color: #a21caf;
+	transition: border 0.2s;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+.aichat-input:focus {
+	border-color: #f43f5e;
+	background: #fff0fa;
+}
+.aichat-send-btn {
+	background: linear-gradient(90deg, #f43f5e 0%, #a21caf 100%);
+	color: #fff;
+	border: none;
+	border-radius: 1.2rem;
+	padding: 0.6rem 1.3rem;
+	font-size: 1.08rem;
+	font-weight: 700;
+	cursor: pointer;
+	box-shadow: 0 1px 4px 0 rgba(244,63,94,0.08);
+	transition: background 0.2s;
+	font-family: 'Comic Sans MS', 'Baloo 2', 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+.aichat-send-btn:hover {
+	background: linear-gradient(90deg, #a21caf 0%, #f43f5e 100%);
+}
 /* AI Chatbox Styles */
 .aichat-bg {
 	min-height: 100vh;
