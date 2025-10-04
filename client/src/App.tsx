@@ -1,15 +1,17 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Test from "./pages/Test";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <div className="">jimmy</div>
-    </>
+    <BrowserRouter>
+      <Navbar />
+      <div style={{ padding: "1rem" }}>
+        <Routes>
+          <Route path="/" element={<Test />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
