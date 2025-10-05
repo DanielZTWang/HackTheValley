@@ -75,7 +75,8 @@ const MessagingApp: React.FC = () => {
           </div>
         </div>
         <div className="flex-1 w-full flex flex-col justify-end">
-          <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl shadow p-5 flex-1 overflow-y-auto flex flex-col gap-3 max-h-full min-h-0 scrollbar scrollbar-thumb-fuchsia-400 scrollbar-track-white scrollbar">
+          {/* Image preview is now above the upload button */}
+          <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-2xl shadow p-5 flex-1 overflow-y-auto flex flex-col gap-3 max-h-full min-h-0 scrollbar scrollbar-thumb-fuchsia-400 scrollbar-track-white">
             {messages
               .filter(msg =>
                 (msg.sender === 'you' && msg.recipient === selectedFriend) ||
@@ -106,7 +107,14 @@ const MessagingApp: React.FC = () => {
               })}
             <div ref={chatEndRef} />
           </div>
-          <form className="flex gap-2 items-center p-4 border-t border-pink-100 bg-white/80 w-full" onSubmit={handleSend}>
+          <form className="flex gap-2 items-center p-4 border-t border-pink-100 bg-white/80 w-full relative" onSubmit={handleSend}>
+            <div className="absolute left-4 -top-40">
+              {image && (
+                <div className="bg-white/80 p-2 rounded-lg shadow border border-pink-200 flex items-center">
+                  <img src={image} alt="preview" className="rounded-lg max-w-[200px] max-h-[140px] border border-pink-200 shadow" />
+                </div>
+              )}
+            </div>
             <label className="cursor-pointer flex items-center">
               <input
                 type="file"
@@ -125,11 +133,7 @@ const MessagingApp: React.FC = () => {
             />
             <button type="submit" className="rounded-xl bg-gradient-to-r from-pink-300 to-fuchsia-400 text-white font-bold px-5 py-2 shadow hover:from-fuchsia-400 hover:to-pink-300 transition">Send</button>
           </form>
-          {image && (
-            <div className="flex justify-center mt-2">
-              <img src={image} alt="preview" className="rounded-lg max-w-[180px] max-h-[120px] border border-pink-200 shadow" />
-            </div>
-          )}
+          {/* Image preview is now at the top left, so removed from here */}
         </div>
       </div>
     </div>

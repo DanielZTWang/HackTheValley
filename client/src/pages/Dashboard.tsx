@@ -44,7 +44,7 @@ const Dashboard: React.FC = () => {
           StudyHack Dashboard
         </h1>
         <div className="w-full flex flex-col md:flex-row gap-8 justify-between">
-          <div className="flex-1 flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4 bg-blue-50 rounded-2xl p-6 shadow-md border border-blue-100">
             <div className="text-2xl font-bold text-blue-500">
               Your Study Hours
             </div>
@@ -73,7 +73,7 @@ const Dashboard: React.FC = () => {
               {message}
             </div>
           </div>
-          <div className="flex-1 flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center gap-4 bg-purple-50 rounded-2xl p-6 shadow-md border border-purple-100">
             <div className="text-2xl font-bold text-purple-500 mb-2">
               Your Friends
             </div>
