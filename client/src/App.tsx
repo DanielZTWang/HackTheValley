@@ -7,6 +7,7 @@ import AIChat from "./pages/AIChat";
 import Home from "./pages/Home";
 import Leaderboard from "./pages/Leaderboard";
 import MessagingApp from "./pages/MessagingApp";
+import ForumPage from "./pages/Forum";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/test" element={<Test />} />
           <Route path="/messaging" element={<MessagingApp />} />
+          <Route path="/forum" element={<ForumPage />} />
         </Routes>
       </div>
     </BrowserRouter>
