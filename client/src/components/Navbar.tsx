@@ -25,13 +25,32 @@ export default function Navbar() {
           StudyHacks
         </span>
       </Link>
-      <div style={{ display: "flex", gap: "1.7rem", fontSize: "1.08rem", fontWeight: 500 }}>
+      <div style={{ display: "flex", gap: "1.7rem", fontSize: "1.08rem", fontWeight: 500, alignItems: "center" }}>
         <Link to="/about" style={{ textDecoration: "none", color: "#7C3AED", padding: "0.3rem 1rem", borderRadius: "0.5rem", transition: "background 0.2s" }}>
           About
         </Link>
         <Link to="/contact" style={{ textDecoration: "none", color: "#10B981", padding: "0.3rem 1rem", borderRadius: "0.5rem", transition: "background 0.2s" }}>
           Contact
         </Link>
+        <button
+          style={{
+            marginLeft: "1.5rem",
+            padding: "0.4rem 1.2rem",
+            background: "#7C3AED",
+            color: "white",
+            border: "none",
+            borderRadius: "0.5rem",
+            fontWeight: 600,
+            cursor: "pointer",
+            fontSize: "1.05rem",
+            transition: "background 0.2s"
+          }}
+          onClick={() => {
+            window.location.href = "https://studyhack.ca.auth0.com/authorize?response_type=token&client_id=rfm0iV2T99Nn99uKt0uVkVqDqDcXaco8&redirect_uri=http://localhost:5000/callback";
+          }}
+        >
+          Login
+        </button>
       </div>
     </nav>
   );
