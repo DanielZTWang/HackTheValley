@@ -71,7 +71,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #f43f5e;
+  color: #f2aab6;
   font-family: "Comic Sans MS", "Baloo 2", "Segoe UI", "Roboto", Arial,
     sans-serif;
   font-weight: 800;
@@ -506,13 +506,12 @@ body {
   letter-spacing: -1px;
 }
 
-.studyhacks-brand {
+.studyhack-brand {
   color: #3a3557;
-  font-family: "Comic Sans MS", "Baloo 2", "Segoe UI", "Roboto", Arial,
-    sans-serif;
+  font-family: "Baloo 2", "Segoe UI", "Roboto", Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 0.4px;
-  font-size: 1.11em;
+  font-size: 1em;
   background: linear-gradient(
     90deg,
     rgba(255, 182, 222, 0.38) 0%,

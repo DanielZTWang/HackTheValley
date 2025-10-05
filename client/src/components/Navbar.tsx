@@ -3,7 +3,7 @@ import logo from "../assets/studyhack-logo.svg";
 
 export default function Navbar() {
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-gradient-to-r from-purple-50 via-fuchsia-50 to-pink-50 shadow-[0_2px_12px_0_rgba(124,58,237,0.07)] border-b border-fuchsia-100">
+    <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-gradient-to-r from-pink-50 to-pink-100 border-b-4 border-pink-200 shadow-md">
       {/* Left section: Logo + links */}
       <div className="flex items-center gap-2">
         <Link to="/" className="flex items-center no-underline mr-10">
@@ -18,14 +18,8 @@ export default function Navbar() {
         </Link>
         <div className="flex gap-6 text-lg font-medium">
           <Link
-            to="/about"
-            className="text-purple-600 px-3 py-1.5 rounded-md hover:bg-purple-100 hover:text-purple-900 transition-colors"
-          >
-            About
-          </Link>
-          <Link
             to="/contact"
-            className="text-purple-900 px-3 py-1.5 rounded-md hover:bg-purple-50 transition-colors font-semibold tracking-wide flex items-center gap-2"
+            className="text-emerald-500 px-3 py-1.5 rounded-md hover:bg-emerald-100 transition-colors"
           >
             <span role="img" aria-label="AI">
               🤖
@@ -61,7 +55,7 @@ export default function Navbar() {
           className="bg-gradient-to-r from-fuchsia-400 to-pink-400 text-white font-semibold text-base px-5 py-2 rounded-lg shadow hover:from-fuchsia-500 hover:to-pink-500 transition-colors"
         >
           Login/Sign Up
-        </a>
+        </Link>
       </div>
     </nav>
   );
