@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
-import Test from "./pages/Test";
 import About from "./pages/About";
 import AIChat from "./pages/AIChat";
 import Home from "./pages/Home";
@@ -20,7 +19,6 @@ function App() {
           {/* <Route path="/aichat" element={<AIChat />} /> */}
           <Route path="/contact" element={<AIChat />} />
           <Route path="/about" element={<About />} />
-          <Route path="/test" element={<Test />} />
           <Route path="/messaging" element={<MessagingApp />} />
         </Routes>
       </div>

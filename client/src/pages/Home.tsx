@@ -3,8 +3,10 @@ import React from "react";
 const Home: React.FC = () => (
   <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-purple-100 to-fuchsia-100">
     <div className="bg-white/90 rounded-3xl shadow-2xl border-4 border-fuchsia-200 max-w-xl w-full flex flex-col gap-6 p-10 items-center">
-      <h1 className="text-4xl font-extrabold text-fuchsia-500 mb-2 tracking-widest text-center">
-        Welcome to StudyHack!
+      <h1 className="text-3xl font-extrabold text-pink-500 tracking-tight mb-1">
+        <span className="bg-gradient-to-r from-pink-200 via-purple-200 to-fuchsia-200 px-4 py-1 rounded-full text-pink-700 shadow">
+          StudyHack
+        </span>
       </h1>
       <p className="text-lg text-gray-700 text-center max-w-md">
         Track your study hours, chat with friends, compete on the leaderboard,
