@@ -12,7 +12,8 @@ const initialTips: Tip[] = [
   {
     id: 1,
     author: "Alice",
-    content: "Use the Pomodoro technique to stay focused and take regular breaks.",
+    content:
+      "Use the Pomodoro technique to stay focused and take regular breaks.",
     timestamp: new Date().toLocaleString(),
   },
   {
@@ -27,6 +28,22 @@ const ForumPage: React.FC = () => {
   const [tips, setTips] = useState<Tip[]>(initialTips);
   const [author, setAuthor] = useState("");
   const [content, setContent] = useState("");
+  const [sortBy, setSortBy] = useState<"recent" | "popular" | "date">("recent");
+  // Helper to get sorted tips
+  function getSortedTips() {
+    if (sortBy === "recent") {
+      return [...tips];
+    } else if (sortBy === "popular") {
+      // For demo, just show first 3 as 'popular'
+      return tips.slice(0, 3);
+    } else if (sortBy === "date") {
+      return [...tips].sort(
+        (a, b) =>
+          new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
+    }
+    return tips;
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,7 +72,6 @@ const ForumPage: React.FC = () => {
         padding: "2.5rem 2rem",
       }}
     >
-      <div style={{ fontSize: 40, color: "red" }}>Forum Test</div>
       <h1
         style={{
           textAlign: "center",
@@ -81,7 +97,7 @@ const ForumPage: React.FC = () => {
           type="text"
           placeholder="Your name"
           value={author}
-          onChange={e => setAuthor(e.target.value)}
+          onChange={(e) => setAuthor(e.target.value)}
           required
           style={{
             padding: "0.5rem",
@@ -93,7 +109,7 @@ const ForumPage: React.FC = () => {
         <textarea
           placeholder="Share your best study tip..."
           value={content}
-          onChange={e => setContent(e.target.value)}
+          onChange={(e) => setContent(e.target.value)}
           rows={3}
           required
           style={{
@@ -124,23 +140,61 @@ const ForumPage: React.FC = () => {
         </button>
       </form>
       <section>
-        <h2
+        <div
           style={{
-            color: "#a21caf",
-            fontSize: "1.25rem",
-            fontWeight: 700,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
             marginBottom: "1rem",
           }}
         >
-          Recent Tips
-        </h2>
-        <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {tips.length === 0 && (
+          <h2
+            style={{
+              color: "#a21caf",
+              fontSize: "1.25rem",
+              fontWeight: 700,
+              marginBottom: 0,
+            }}
+          >
+            Tips
+          </h2>
+          <select
+            value={sortBy}
+            onChange={(e) =>
+              setSortBy(e.target.value as "recent" | "popular" | "date")
+            }
+            style={{
+              padding: "0.3rem 0.7rem",
+              borderRadius: 8,
+              border: "1px solid #e9d5ff",
+              fontSize: "1rem",
+              background: "#faf5ff",
+              color: "#a21caf",
+              fontWeight: 600,
+              outline: "none",
+              marginLeft: "1rem",
+            }}
+          >
+            <option value="recent">Recent</option>
+            <option value="popular">Popular</option>
+            <option value="date">Date</option>
+          </select>
+        </div>
+        <ul
+          style={{
+            listStyle: "none",
+            padding: 0,
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          {getSortedTips().length === 0 && (
             <li style={{ color: "#a0aec0", textAlign: "center" }}>
               No tips yet. Be the first to post!
             </li>
           )}
-          {tips.map(tip => (
+          {getSortedTips().map((tip) => (
             <li
               key={tip.id}
               style={{
@@ -153,105 +207,21 @@ const ForumPage: React.FC = () => {
                 gap: 4,
               }}
             >
-              <div style={{ fontWeight: 600, color: "#a21caf" }}>{tip.author}</div>
-              <div style={{ color: "#4a044e", margin: "0.25rem 0" }}>{tip.content}</div>
-              <div style={{ fontSize: 12, color: "#a0aec0", alignSelf: "flex-end" }}>{tip.timestamp}</div>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section>
-        <h2
-          style={{
-            color: "#a21caf",
-            fontSize: "1.25rem",
-            fontWeight: 700,
-            marginBottom: "1rem",
-          }}
-        >
-          Popular Tips
-        </h2>
-        <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {tips.slice(0, 3).map(tip => (
-            <li
-              key={tip.id}
-              style={{
-                background: "#f3e8ff",
-                borderRadius: 10,
-                padding: "1rem",
-                boxShadow: "0 1px 4px rgba(162,28,175,0.07)",
-                display: "flex",
-                flexDirection: "column",
-                gap: 4,
-              }}
-            >
-              <div style={{ fontWeight: 600, color: "#a21caf" }}>{tip.author}</div>
-              <div style={{ color: "#4a044e", margin: "0.25rem 0" }}>{tip.content}</div>
-              <div style={{ fontSize: 12, color: "#a0aec0", alignSelf: "flex-end" }}>{tip.timestamp}</div>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section>
-        <h2
-          style={{
-            color: "#a21caf",
-            fontSize: "1.25rem",
-            fontWeight: 700,
-            marginBottom: "1rem",
-          }}
-        >
-          Tips by Author
-        </h2>
-        <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {tips.map(tip => (
-            <li
-              key={tip.id}
-              style={{
-                background: "#f3e8ff",
-                borderRadius: 10,
-                padding: "1rem",
-                boxShadow: "0 1px 4px rgba(162,28,175,0.07)",
-                display: "flex",
-                flexDirection: "column",
-                gap: 4,
-              }}
-            >
-              <div style={{ fontWeight: 600, color: "#a21caf" }}>{tip.author}</div>
-              <div style={{ color: "#4a044e", margin: "0.25rem 0" }}>{tip.content}</div>
-              <div style={{ fontSize: 12, color: "#a0aec0", alignSelf: "flex-end" }}>{tip.timestamp}</div>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section>
-        <h2
-          style={{
-            color: "#a21caf",
-            fontSize: "1.25rem",
-            fontWeight: 700,
-            marginBottom: "1rem",
-          }}
-        >
-          Tips by Date
-        </h2>
-        <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "1rem" }}>
-          {tips.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 3).map(tip => (
-            <li
-              key={tip.id}
-              style={{
-                background: "#f3e8ff",
-                borderRadius: 10,
-                padding: "1rem",
-                boxShadow: "0 1px 4px rgba(162,28,175,0.07)",
-                display: "flex",
-                flexDirection: "column",
-                gap: 4,
-              }}
-            >
-              <div style={{ fontWeight: 600, color: "#a21caf" }}>{tip.author}</div>
-              <div style={{ color: "#4a044e", margin: "0.25rem 0" }}>{tip.content}</div>
-              <div style={{ fontSize: 12, color: "#a0aec0", alignSelf: "flex-end" }}>{tip.timestamp}</div>
+              <div style={{ fontWeight: 600, color: "#a21caf" }}>
+                {tip.author}
+              </div>
+              <div style={{ color: "#4a044e", margin: "0.25rem 0" }}>
+                {tip.content}
+              </div>
+              <div
+                style={{
+                  fontSize: 12,
+                  color: "#a0aec0",
+                  alignSelf: "flex-end",
+                }}
+              >
+                {tip.timestamp}
+              </div>
             </li>
           ))}
         </ul>

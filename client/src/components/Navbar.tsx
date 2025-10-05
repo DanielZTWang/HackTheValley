@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/studyhack-logo.svg";
 import AIChatWidget from "./AIChatWidget";
+import { useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const location = useLocation();
+  const pathname = location.pathname;
   return (
     <>
       <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-gradient-to-r from-pink-50 to-pink-100 border-b-4 border-pink-200 shadow-md">
@@ -56,7 +59,7 @@ export default function Navbar() {
           </a>
         </div>
       </nav>
-      <AIChatWidget />
+      {pathname !== "/messaging" && <AIChatWidget />}
     </>
   );
 }
