@@ -25,7 +25,10 @@ export default function Navbar() {
             to="/contact"
             className="text-purple-900 px-3 py-1.5 rounded-md hover:bg-purple-50 transition-colors font-semibold tracking-wide flex items-center gap-2"
           >
-            <span role="img" aria-label="AI">🤖</span> AI Chat
+            <span role="img" aria-label="AI">
+              🤖
+            </span>{" "}
+            AI Chat
           </Link>
           <Link
             to="/leaderboard"
