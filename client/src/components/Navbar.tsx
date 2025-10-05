@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/studyhacks-logo.svg";
+import logo from "../assets/studyhack-logo.svg";
 
 export default function Navbar() {
   return (
@@ -9,7 +9,7 @@ export default function Navbar() {
         <Link to="/" className="flex items-center no-underline mr-10">
           <img
             src={logo}
-            alt="StudyHacks Logo"
+            alt="StudyHack Logo"
             className="h-9 w-9 mr-2 object-contain"
           />
           <span className="text-xl font-semibold">StudyHack</span>

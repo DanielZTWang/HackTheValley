@@ -15,11 +15,11 @@ const About: React.FC = () => {
           </svg>
         </div>
       </div>
-  <h1 className="about-title">About <span className="studyhacks-brand">StudyHacks</span></h1>
+  <h1 className="about-title">About <span className="studyhack-brand">StudyHack</span></h1>
       <p className="about-lead">
-  <strong className="studyhacks-brand">StudyHacks</strong> is your go-to platform for tracking and comparing your study progress with others. Whether you want to stay motivated, set new goals, or see how your study habits stack up against your peers, <span className="studyhacks-brand">StudyHacks</span> provides the tools and insights you need to succeed.
+  <strong className="studyhack-brand">StudyHack</strong> is your go-to platform for tracking and comparing your study progress with others. Whether you want to stay motivated, set new goals, or see how your study habits stack up against your peers, <span className="studyhack-brand">StudyHack</span> provides the tools and insights you need to succeed.
       </p>
-  <h2>What can you do on <span className="studyhacks-brand">StudyHacks</span>?</h2>
+  <h2>What can you do on <span className="studyhack-brand">StudyHack</span>?</h2>
       <ul className="about-list">
         <li>📈 Log your study sessions and monitor your progress over time.</li>
         <li>🤝 Compare your study stats with friends and the wider community.</li>
@@ -28,12 +28,12 @@ const About: React.FC = () => {
       </ul>
       <h2>Why compare your progress?</h2>
       <p>
-  Comparing your study progress can help you stay motivated, identify areas for improvement, and learn from others. With <span className="studyhacks-brand">StudyHacks</span>, you can turn studying into a fun and social experience!
+  Comparing your study progress can help you stay motivated, identify areas for improvement, and learn from others. With <span className="studyhack-brand">StudyHack</span>, you can turn studying into a fun and social experience!
       </p>
       <div className="about-cta">
-  <h2>Join the <span className="studyhacks-brand">StudyHacks</span> community today!</h2>
+  <h2>Join the <span className="studyhack-brand">StudyHack</span> community today!</h2>
         <p>
-          Start tracking, comparing, and improving your study habits with <span className="studyhacks-brand">StudyHacks</span>. Together, we can achieve more!
+          Start tracking, comparing, and improving your study habits with <span className="studyhack-brand">StudyHack</span>. Together, we can achieve more!
         </p>
       </div>
     </div>

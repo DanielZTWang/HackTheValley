@@ -32,7 +32,7 @@ const Dashboard: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-purple-100 to-fuchsia-100">
       <div className="bg-white/90 rounded-3xl shadow-2xl border-4 border-fuchsia-200 max-w-2xl w-full flex flex-col gap-8 p-10 items-center">
-        <h1 className="text-4xl font-extrabold text-fuchsia-500 mb-2 tracking-widest text-center">StudyHacks Dashboard</h1>
+        <h1 className="text-4xl font-extrabold text-fuchsia-500 mb-2 tracking-widest text-center">StudyHack Dashboard</h1>
         <div className="w-full flex flex-col md:flex-row gap-8 justify-between">
           <div className="flex-1 flex flex-col items-center gap-4">
             <div className="text-2xl font-bold text-blue-500">Your Study Hours</div>
