@@ -9,6 +9,10 @@ load_dotenv()
 
 
 app = Flask(__name__)
+from flask_cors import CORS
+
+CORS(app, supports_credentials=True, origins=["http://localhost:5000"])
+
 app.secret_key = os.environ.get("APP_SECRET_KEY")
 init_db()
 
@@ -46,12 +50,30 @@ def callback():
         (userinfo["sub"], userinfo.get("name", ""), userinfo.get("email", ""))
     )
     db.commit()
-    return redirect("/")
+    return redirect("http://localhost:5000/")
+
 
 @app.route("/logout")
 def logout():
     session.clear()
-    return redirect("/")
+    return redirect("http://localhost:5000/")
+
+
+from flask import jsonify
+
+@app.route("/user")
+def get_user():
+    user = session.get("user")
+    if user:
+        return jsonify({
+            "name": user.get("name"),
+            "email": user.get("email"),
+            "picture": user.get("picture"),
+            "username": user.get("nickname") or user.get("name")
+        })
+    else:
+        return jsonify({"error": "Not logged in"}), 401
+
     
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=os.environ.get("PORT", 5001))

@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/studyhack-logo.svg";
 import AIChatWidget from "./AIChatWidget";
-import { useLocation } from "react-router-dom";
+import { useUser } from "../hooks/useUser";
+import { useState } from "react";
 
 export default function Navbar() {
   const location = useLocation();
   const pathname = location.pathname;
+  const { user, loading } = useUser();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-gradient-to-r from-pink-50 to-pink-100 border-b-4 border-pink-200 shadow-md">
@@ -43,7 +47,7 @@ export default function Navbar() {
               to="/forum"
               className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
             >
-                <span role="img" aria-label="Forum">📢</span>
+              <span role="img" aria-label="Forum">📢</span>
               Forum
             </Link>
           </div>
@@ -51,14 +55,43 @@ export default function Navbar() {
 
         {/* Right section: Auth buttons */}
         <div className="flex items-center gap-4">
-          <a
-            href="https://studyhack.ca.auth0.com/authorize?response_type=token&client_id=rfm0iV2T99Nn99uKt0uVkVqDqDcXaco8&redirect_uri=http://localhost:5000/callback"
-            className="bg-gradient-to-r from-fuchsia-400 to-pink-400 text-white font-semibold text-base px-5 py-2 rounded-lg shadow hover:from-fuchsia-500 hover:to-pink-500 transition-colors"
-          >
-            Login/Sign Up
-          </a>
+          {!loading && !user && (
+            <a
+              href="http://localhost:5001/login"
+              className="bg-[#c465e6] text-white font-semibold text-base px-4 py-2 rounded-md hover:bg-[#b452de] transition-colors"
+            >
+              Sign In
+            </a>
+          )}
+
+          {!loading && user && (
+            <>
+              <div className="flex items-center gap-3">
+                <img
+                  src={
+                    user.picture ||
+                    `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                      user.username || user.name
+                    )}`
+                  }
+                  alt="Profile"
+                  className="w-9 h-9 rounded-full border-2 border-purple-300 shadow"
+                />
+                <span className="font-semibold text-base text-gray-800">
+                  {user.username || user.name}
+                </span>
+              </div>
+              <a
+                href="http://localhost:5001/logout"
+                className="bg-red-500 text-white font-semibold text-base px-4 py-2 rounded-md hover:bg-red-600 transition-colors"
+              >
+                Log Out
+              </a>
+            </>
+          )}
         </div>
       </nav>
+
       {pathname !== "/messaging" && <AIChatWidget />}
     </>
   );
