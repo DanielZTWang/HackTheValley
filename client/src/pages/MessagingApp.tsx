@@ -79,43 +79,42 @@ const MessagingApp: React.FC = () => {
   };
 
   return (
-    <div className="min-h-[85vh] h-[85vh] flex items-stretch bg-gradient-to-br from-pink-100 via-purple-100 to-fuchsia-100 p-4">
-      <div className="flex flex-1 h-full w-full bg-white/90 shadow-2xl border-l-4 border-r-4 border-pink-200 rounded-2xl overflow-hidden">
+  <div className="flex items-stretch bg-gradient-to-br from-pink-100 via-purple-100 to-fuchsia-100 py-2 sm:py-4 px-2 sm:px-4">
+      <div className="flex flex-1 h-full w-full bg-white/90 shadow-2xl border-l-4 border-r-4 border-pink-200 rounded-2xl overflow-hidden min-h-[70vh] max-h-[95vh]">
         {/* Sidebar */}
-        <div className="w-64 min-w-[180px] max-w-[240px] bg-gradient-to-b from-fuchsia-100 to-pink-50 border-r border-fuchsia-200 flex flex-col p-4 gap-2">
-          <h2 className="text-xl font-extrabold text-fuchsia-500 mb-4 tracking-widest flex items-center gap-2">
+        <div className="w-20 sm:w-64 min-w-[60px] sm:min-w-[180px] max-w-[80px] sm:max-w-[240px] bg-gradient-to-b from-fuchsia-100 to-pink-50 border-r border-fuchsia-200 flex flex-col p-2 sm:p-4 gap-2 transition-all duration-200">
+          <h2 className="hidden sm:flex text-xl font-extrabold text-fuchsia-500 mb-4 tracking-widest items-center gap-2">
             <span role="img" aria-label="Chat">💬</span> Chats
           </h2>
           {users.filter(u => u.id !== 'you').map(u => (
             <button
               key={u.id}
-              className={`w-full text-left px-4 py-3 rounded-lg font-bold border-2 transition text-lg mb-2 ${selectedFriend === u.id ? 'bg-fuchsia-400 text-white border-fuchsia-500 shadow' : 'bg-white text-fuchsia-500 border-fuchsia-100 hover:border-fuchsia-400 hover:bg-fuchsia-50'}`}
+              className={`w-full text-left px-2 sm:px-4 py-2 sm:py-3 rounded-lg font-bold border-2 transition text-base sm:text-lg mb-2 ${selectedFriend === u.id ? 'bg-fuchsia-400 text-white border-fuchsia-500 shadow' : 'bg-white text-fuchsia-500 border-fuchsia-100 hover:border-fuchsia-400 hover:bg-fuchsia-50'}`}
               onClick={() => setSelectedFriend(u.id)}
             >
-              {u.name}
+              <span className="hidden sm:inline">{u.name}</span>
+              <span className="sm:hidden">{u.name[0]}</span>
             </button>
           ))}
         </div>
         {/* Chat area */}
-        <div className="flex-1 flex flex-col justify-end items-center h-full">
+  <div className="flex-1 flex flex-col justify-end items-center h-full min-w-0">
           {!selectedFriend ? (
             <div className="flex flex-1 items-center justify-center w-full h-full">
               <div className="text-2xl text-fuchsia-400 font-bold opacity-70">Select a chat to start messaging</div>
             </div>
           ) : (
             <>
-              <div className="sticky top-0 z-10 w-full bg-gradient-to-r from-pink-50 to-purple-50 px-4 py-2 border-b border-pink-200">
+              <div className="sticky top-0 z-10 w-full bg-gradient-to-r from-pink-50 to-purple-50 px-2 sm:px-4 py-2 border-b border-pink-200">
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-bold text-fuchsia-500">Chatting with:</span>
                   <span className="text-lg font-extrabold text-fuchsia-700">{users.find(u => u.id === selectedFriend)?.name}</span>
                 </div>
               </div>
-              <div className="w-full flex-1 flex flex-col justify-end">
+              <div className="w-full flex-1 flex flex-col justify-end min-w-0">
                 <div
-                  className="bg-gradient-to-r from-pink-50 to-purple-50 shadow p-5 overflow-y-auto flex flex-col gap-3"
+                  className="bg-gradient-to-r from-pink-50 to-purple-50 shadow p-2 sm:p-5 overflow-y-auto flex flex-col gap-3 min-h-[40vh] max-h-[75vh] h-[60vh]"
                   style={{
-                    height: '68vh',
-                    maxHeight: '68vh',
                     scrollbarWidth: 'none',
                     msOverflowStyle: 'none',
                   }}

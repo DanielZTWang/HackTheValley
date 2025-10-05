@@ -216,7 +216,7 @@ const ForumPage: React.FC = () => {
               <div
                 style={{
                   fontSize: 12,
-                  color: "#a0aec0",
+                  color: "#666e78ff",
                   alignSelf: "flex-end",
                 }}
               >
