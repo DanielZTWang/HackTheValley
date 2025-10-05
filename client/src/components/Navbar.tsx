@@ -14,7 +14,6 @@ export default function Navbar() {
           />
           <span className="text-xl font-semibold">StudyHack</span>
         </Link>
-
         <div className="flex gap-7 text-lg font-medium">
           <Link
             to="/about"
@@ -39,37 +38,12 @@ export default function Navbar() {
         >
           <span role="img" aria-label="AI">🤖</span> AI Chat
         </Link>
-        <Link
-          to="/signin"
-          className="text-gray-700 font-medium text-base px-3 py-2 rounded-md hover:bg-gray-200 transition-colors"
-        >
-          Sign In
-        </Link>
-        <Link
-          to="/signup"
+        <a
+          href="https://studyhack.ca.auth0.com/authorize?response_type=token&client_id=rfm0iV2T99Nn99uKt0uVkVqDqDcXaco8&redirect_uri=http://localhost:5000/callback"
           className="bg-[#c465e6] text-white font-semibold text-base px-4 py-2 rounded-md hover:bg-[#b452de] transition-colors"
         >
-          Create Account
-        </Link>
-        <button
-          style={{
-            marginLeft: "1.5rem",
-            padding: "0.4rem 1.2rem",
-            background: "#7C3AED",
-            color: "white",
-            border: "none",
-            borderRadius: "0.5rem",
-            fontWeight: 600,
-            cursor: "pointer",
-            fontSize: "1.05rem",
-            transition: "background 0.2s"
-          }}
-          onClick={() => {
-            window.location.href = "https://studyhack.ca.auth0.com/authorize?response_type=token&client_id=rfm0iV2T99Nn99uKt0uVkVqDqDcXaco8&redirect_uri=http://localhost:5000/callback";
-          }}
-        >
-          Login
-        </button>
+          Login/Sign Up
+        </a>
       </div>
     </nav>
   );
