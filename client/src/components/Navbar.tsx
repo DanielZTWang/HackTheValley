@@ -27,23 +27,23 @@ export default function Navbar() {
           <div className="flex gap-6 text-lg font-medium">
             <Link
               to="/leaderboard"
-              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide"
+              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
             >
+              <span role="img" aria-label="Hourglass">⏳</span>
               Study Hours
             </Link>
             <Link
               to="/messaging"
-              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide"
+              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
             >
+              <span role="img" aria-label="Messaging">💬</span>
               Messaging
             </Link>
             <Link
               to="/forum"
               className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
             >
-              <span role="img" aria-label="Forum">
-                💬
-              </span>
+                <span role="img" aria-label="Forum">📢</span>
               Forum
             </Link>
           </div>
