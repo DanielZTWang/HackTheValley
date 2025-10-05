@@ -1,3 +1,3 @@
 export default function About() {
-  return <div className="text-4xl">niggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg 👋 ht</div>;
+  return <div className="text-4xl"></div>;
 }
