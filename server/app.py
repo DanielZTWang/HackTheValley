@@ -1,13 +1,16 @@
-from flask import Flask, redirect, session, url_for
+from flask import Flask, redirect, session, url_for, g
 from authlib.integrations.flask_client import OAuth
 from dotenv import load_dotenv
 import os
+from db import get_db, init_db
 
 # Load environment variables from .env file
 load_dotenv()
 
+
 app = Flask(__name__)
 app.secret_key = os.environ.get("APP_SECRET_KEY")
+init_db()
 
 oauth = OAuth(app)
 
@@ -30,10 +33,19 @@ def login():
         redirect_uri=url_for("callback", _external=True)
     )
 
+
 @app.route("/callback")
 def callback():
     token = auth0.authorize_access_token()
-    session["user"] = token["userinfo"]
+    userinfo = token["userinfo"]
+    session["user"] = userinfo
+    # Add user to accounts db if not present
+    db = get_db()
+    db.execute(
+        "INSERT OR IGNORE INTO accounts (auth0_id, name, email) VALUES (?, ?, ?)",
+        (userinfo["sub"], userinfo.get("name", ""), userinfo.get("email", ""))
+    )
+    db.commit()
     return redirect("/")
 
 @app.route("/logout")

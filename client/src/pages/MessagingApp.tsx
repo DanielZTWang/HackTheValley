@@ -80,22 +80,18 @@ const MessagingApp: React.FC = () => {
               </span>{" "}
               Messaging App
             </h2>
-            <div className="flex gap-2 flex-wrap justify-center">
-              {users
-                .filter((u) => u.id !== "you")
-                .map((u) => (
-                  <button
-                    key={u.id}
-                    className={`px-3 py-1 rounded-full font-bold border-2 transition ${
-                      selectedFriend === u.id
-                        ? `${u.color} text-white border-fuchsia-400`
-                        : "bg-white text-gray-500 border-gray-200 hover:border-fuchsia-400"
-                    }`}
-                    onClick={() => setSelectedFriend(u.id)}
-                  >
+            <div className="flex justify-end w-full">
+              <select
+                className="w-full max-w-xs text-lg rounded-xl border-2 border-fuchsia-300 px-4 py-3 font-bold text-fuchsia-600 bg-white shadow focus:outline-none focus:border-fuchsia-500 transition"
+                value={selectedFriend}
+                onChange={e => setSelectedFriend(e.target.value)}
+              >
+                {users.filter(u => u.id !== "you").map(u => (
+                  <option key={u.id} value={u.id} className="text-lg">
                     {u.name}
-                  </button>
+                  </option>
                 ))}
+              </select>
             </div>
           </div>
         </div>
