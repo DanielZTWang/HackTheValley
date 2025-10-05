@@ -12,6 +12,7 @@ function App() {
       <div style={{ padding: "1rem" }}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/callback" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/messaging" element={<MessagingApp />} />
           <Route path="/forum" element={<ForumPage />} />
