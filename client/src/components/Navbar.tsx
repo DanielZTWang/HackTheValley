@@ -23,21 +23,27 @@ export default function Navbar() {
           </Link>
           <Link
             to="/contact"
-            className="text-emerald-500 px-3 py-1.5 rounded-md hover:bg-emerald-100 transition-colors"
+            className="text-purple-900 px-3 py-1.5 rounded-md hover:bg-purple-50 transition-colors font-semibold tracking-wide flex items-center gap-2"
           >
-            Contact
+            <span role="img" aria-label="AI">🤖</span> AI Chat
+          </Link>
+          <Link
+            to="/leaderboard"
+            className="text-pink-500 px-3 py-1.5 rounded-md hover:bg-pink-100 transition-colors font-semibold tracking-wide"
+          >
+            Study Hours
+          </Link>
+          <Link
+            to="/messaging"
+            className="text-blue-900 px-3 py-1.5 rounded-md hover:bg-blue-50 transition-colors font-semibold tracking-wide"
+          >
+            Messaging
           </Link>
         </div>
       </div>
 
-      {/* Right section: AI Chat + Auth buttons */}
+      {/* Right section: Auth buttons */}
       <div className="flex items-center gap-4">
-        <Link
-          to="/aichat"
-          className="bg-gradient-to-r from-pink-300 via-purple-300 to-fuchsia-400 text-purple-900 font-semibold text-base px-4 py-2 rounded-full shadow hover:from-pink-400 hover:to-fuchsia-500 hover:text-white transition-colors flex items-center gap-2"
-        >
-          <span role="img" aria-label="AI">🤖</span> AI Chat
-        </Link>
         <a
           href="https://studyhack.ca.auth0.com/authorize?response_type=token&client_id=rfm0iV2T99Nn99uKt0uVkVqDqDcXaco8&redirect_uri=http://localhost:5000/callback"
           className="bg-[#c465e6] text-white font-semibold text-base px-4 py-2 rounded-md hover:bg-[#b452de] transition-colors"

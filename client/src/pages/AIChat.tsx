@@ -1,27 +1,48 @@
 import React, { useState, useRef, useEffect } from 'react';
-import '../App.css';
+
+const GEMINI_API_URL =
+  'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' +
+  import.meta.env.VITE_GEMINI_API_KEY;
 
 const initialMessages = [
-  { sender: 'ai', text: 'Hi! I am your StudyHacks AI. How can I help you with your study goals today?' }
+  { sender: 'ai', text: 'Hi! I am your StudyHacks AI (Gemini). How can I help you with your study goals today?' }
 ];
 
 const AIChat: React.FC = () => {
+  console.log('Gemini API Key:', import.meta.env.VITE_GEMINI_API_KEY);
   const [messages, setMessages] = useState(initialMessages);
   const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = (e: React.FormEvent) => {
+  const handleSend = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!input.trim()) return;
-    setMessages([...messages, { sender: 'user', text: input }]);
-    // Simulate AI response
-    setTimeout(() => {
-      setMessages(msgs => [...msgs, { sender: 'ai', text: "I'm here to help! (AI response placeholder)" }]);
-    }, 800);
+    setMessages(msgs => [...msgs, { sender: 'user', text: input }]);
+    setLoading(true);
+    try {
+      const res = await fetch(GEMINI_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [
+            { role: 'user', parts: [{ text: input }] }
+          ]
+        })
+      });
+      const data = await res.json();
+      const aiText =
+        data?.candidates?.[0]?.content?.parts?.[0]?.text ||
+        'Sorry, I could not generate a response.';
+      setMessages(msgs => [...msgs, { sender: 'ai', text: aiText }]);
+    } catch (err) {
+      setMessages(msgs => [...msgs, { sender: 'ai', text: 'Error connecting to Gemini API.' }]);
+    }
+    setLoading(false);
     setInput('');
   };
 
@@ -42,9 +63,11 @@ const AIChat: React.FC = () => {
             placeholder="Type your message..."
             value={input}
             onChange={e => setInput(e.target.value)}
+            disabled={loading}
           />
-          <button className="aichat-send-btn" type="submit">Send</button>
+          <button className="aichat-send-btn" type="submit" disabled={loading}>{loading ? '...' : 'Send'}</button>
         </form>
+        <div className="aichat-hint">Paste your Gemini API key in <code>.env</code> as <b>VITE_GEMINI_API_KEY</b>.</div>
       </div>
     </div>
   );
