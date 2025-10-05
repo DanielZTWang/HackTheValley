@@ -15,6 +15,7 @@ export default function Navbar() {
       <nav className="sticky top-0 z-50 flex items-center justify-between px-8 py-4 bg-gradient-to-r from-pink-50 to-pink-100 border-b-4 border-pink-200 shadow-md">
         {/* Left section: Logo + links */}
         <div className="flex items-center gap-2">
+          {/* Homepage always visible */}
           <Link to="/" className="flex items-center no-underline mr-10">
             <img
               src={logo}
@@ -28,29 +29,33 @@ export default function Navbar() {
               StudyHack
             </span>
           </Link>
-          <div className="flex gap-6 text-lg font-medium">
-            <Link
-              to="/leaderboard"
-              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
-            >
-              <span role="img" aria-label="Hourglass">⏳</span>
-              Study Hours
-            </Link>
-            <Link
-              to="/messaging"
-              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
-            >
-              <span role="img" aria-label="Messaging">💬</span>
-              Messaging
-            </Link>
-            <Link
-              to="/forum"
-              className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
-            >
-              <span role="img" aria-label="Forum">📢</span>
-              Forum
-            </Link>
-          </div>
+
+          {/* Other nav links: only show if logged in */}
+          {!loading && user && (
+            <div className="flex gap-6 text-lg font-medium">
+              <Link
+                to="/leaderboard"
+                className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
+              >
+                <span role="img" aria-label="Hourglass">⏳</span>
+                Study Hours
+              </Link>
+              <Link
+                to="/messaging"
+                className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
+              >
+                <span role="img" aria-label="Messaging">💬</span>
+                Messaging
+              </Link>
+              <Link
+                to="/forum"
+                className="text-fuchsia-700 px-3 py-1.5 rounded-md hover:bg-fuchsia-100 hover:text-fuchsia-900 transition-colors font-semibold tracking-wide flex items-center gap-2"
+              >
+                <span role="img" aria-label="Forum">📢</span>
+                Forum
+              </Link>
+            </div>
+          )}
         </div>
 
         {/* Right section: Auth buttons */}
